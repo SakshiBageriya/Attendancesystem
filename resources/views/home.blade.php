@@ -1,90 +1,105 @@
 @extends("layout.master")
+
 @section('content')
 <style>
-  .col-sm-12{
+  .jumbotron {
     background-image: url('dist/img/cnst.jpg');
- background-repeat: no-repeat;
-  background-attachment: relative;
-  background-size: 100% 100%;
-  height:20em;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 120px 0; /* Adjust the padding to center the content vertically */
+    margin-bottom: 50px; /* Add some space below the jumbotron */
+    border-radius: 10px; /* Rounded corners for the jumbotron */
   }
-  </style>
-<div class=col-sm-12 > 
-<h1 style="color:white;font-weight:bold;text-align:center;margin-top:31px;"></br> </br></br></br>Welcome To <br>Mohanlal Sukhadia University
- <br></br<br></br></h1><br>
-</div>
-<section style="    padding: 3px 23px 14px 246px;">
-<div class="row" >
-<div class="col-6"  style="width:100%">
-  <br></br>
-<div class="card" style="width: 18em;">
 
-  <div class="card-body">
-    <h5 class="card-title">Total Student</h5>
-    <br>
-    <?php
-$arr=DB::table("student")->count();
-echo  "<span style='font-weight:bold'>",$arr,"</span>";
-    ?>
-    
-    <p class="card-text"></p>
-    <a href="viewstudent" class="btn btn-primary">Click here</a>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    margin: 10px;
+    width: 18em;
+    border: none; /* Remove border from the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    transition: transform 0.3s; /* Add smooth transition on hover */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card:hover {
+    transform: translateY(-5px); /* Move the card up slightly on hover */
+  }
+
+  .card-body {
+    padding: 30px;
+  }
+
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .card-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+</style>
+
+<div class="jumbotron"> 
+  <h1>Welcome To Mohanlal Sukhadia University</h1>
+</div>
+
+<section class="container">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Students</h5>
+        <p class="card-text">{{ DB::table("student")->count() }}</p>
+        <a href="viewstudent" class="btn btn-primary">View Details</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Faculty</h5>
+        <p class="card-text">{{ DB::table("faculty")->count() }}</p>
+        <a href="viewfaculty" class="btn btn-primary">View Details</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Subjects</h5>
+        <p class="card-text">{{ DB::table("subject")->count() }}</p>
+        <a href="viewsubject" class="btn btn-primary">View Details</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Courses</h5>
+        <p class="card-text">{{ DB::table("course")->count() }}</p>
+        <a href="viewcourse" class="btn btn-primary">View Details</a>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-
-<div class="col-6"  style="width:100%">
-<br></br>
-<div class="card" style="width: 18em;">
-
-  <div class="card-body">
-    <h5 class="card-title">Faculty</h5>
-    <br>
-    <?php
-$arr=DB::table("faculty")->count();
-echo  $arr;
-    ?>
-    
-    <p class="card-text"></p>
-    <a href="viewfaculty" class="btn btn-primary">Click here</a>
-  </div>
-</div>
-</div>
-</section>
-<section style="    padding: 3px 23px 14px 246px;">
-<div class="row">
-<div class=" col-6" style="width:100%">
-<div class=" card" style="width: 18em;">
-
-  <div class="card-body">
-    <h5 class="card-title">Total Subject</h5>
-    <br>
-    <?php
-$arr=DB::table("subject")->count();
-echo  $arr;
-    ?>
-    
-    <p class="card-text"></p>
-    <a href="viewsubject" class="btn btn-primary">Click here</a>
-  </div>
-</div>
-</div>
-<div class="col-6"style="width:100%">
-<div class="card" style="width: 18em;">
-
-  <div class="card-body">
-    <h5 class="card-title">Total Courses</h5>
-    <br>
-    <?php
-$arr=DB::table("course")->count();
-echo  $arr;
-    ?>
-    
-    <p class="card-text"></p>
-    <a href="viewcourse" class="btn btn-primary">Click here</a>
-  </div>
-</div>
-</div>
 </section>
 
 @endsection
