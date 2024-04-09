@@ -73,7 +73,6 @@ function subject2(Request $req){
     'semester'=>"required",
     'course'=>"required"]);
 
-
     for($i=0;$i<count($student_id);$i++)
     {
     $arr=array(
@@ -101,6 +100,41 @@ function viewattendance(){
 function viewattendances($course,$semester,$subject)
 {
    return view("faculty.viewattendance",["course"=>$course,"semester"=>$semester,"subject"=>$subject]);
+}
+
+function applyleave(){
+    return view("faculty.applyleave");
+}
+
+function applyleave1( Request $req) {
+    $title=$req->input("title");
+    $description=$req->input("description");
+    $fromdate=$req->input("fromdate");
+    $todate=$req->input("todate");
+    $status=$req->input("status");
+    $faculty_id=Session::get("idd");
+
+    $data=$req->validate(['title'=>"required",
+    'description'=>"required",
+    'fromdate'=>"required",
+    'todate'=>"required"]);
+
+    $arr=array("title"=>$title,
+    "description"=>$description,
+    "fromdate"=>$fromdate,
+    "todate"=>$todate,
+    "faculty_id"=>$faculty_id);
+
+    $r=DB::table("applyleave")->insert($arr);
+    if($r)
+    echo"your application has been submitted successfully";
+else
+echo"try again";
+}
+
+
+function facultyleave(){
+    return view("faculty.facultyleave");
 }
 
 }

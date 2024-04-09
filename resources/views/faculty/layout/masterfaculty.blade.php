@@ -245,14 +245,33 @@
             
           </li>
           
+                    
           <li>
-            <a href="" class="nav-link"style="color:#ffffff; font-weight:500">
+            <a href="viewassignfac" class="nav-link"style="color:#ffffff; font-weight:500">
               <i class="nav-icon fas fa-table"></i>
               <p>&nbsp;
                 Assigned Subject
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a></li>
+            <li>
+            <a href="applyleave" class="nav-link"style="color:#ffffff; font-weight:500">
+              <i class="nav-icon fas fa-table"></i>
+              <p>&nbsp;
+                leave Application
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a></li>
+
+            <li>
+            <a href="facultyleave" class="nav-link"style="color:#ffffff; font-weight:500">
+              <i class="nav-icon fas fa-table"></i>
+              <p>&nbsp;
+                check 
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a></li>
+            
             
       </nav>
       <!-- /.sidebar-menu -->

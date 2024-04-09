@@ -224,6 +224,20 @@ function home()
 {
     return view("home");
 }
+function accept($id)
+{
+    $r=DB::update("update applyleave set status='1' where id='$id'");
+    return redirect("viewleave");
+}
+function reject($id)
+{
+    $r=DB::update("update applyleave set status='2' where id='$id'");
+    return redirect("viewleave");
+}
+
+function viewleave(){
+    return view ("viewleave");
+}
 
 }  
 

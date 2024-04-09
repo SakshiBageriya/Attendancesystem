@@ -1,4 +1,20 @@
 
+
+
+
+<table align="center" border="1" cellspacing=0 cellpadding=10  width='80%'>
+    <tr><th>Course</th>
+    <th>{{$course}}</th>
+    <th>Semester</th>
+    <th>{{$semester}}</th>
+</tr>
+<tr><th  align=''>Subject</th>
+    <th>{{$subject}}</th>
+<th>Date</th>
+<th><?php echo date('d-m-Y'); ?>
+</tr>
+</table>
+<br/>
 <table border="1" align="center" cellspacing=0 cellpadding=10>
     <tr>
         <th>ID</th>
@@ -7,7 +23,6 @@
 
     </tr>
 <?php
-
 
 $arr=DB::select("select * from student where  coursename='$course' and semester='$semester'");
 $sno=1;

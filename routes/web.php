@@ -70,4 +70,13 @@ Route::get("form",[Admincontroller::class,"form"]);
  Route::post("subject2",[FacultyController::class,"subject2"]);
  Route::get("viewattendance",[FacultyController::class,"viewattendance"]);
  Route::get("viewattendances/{id}/{id1}/{id2}",[FacultyController::class,"viewattendances"]);
+
+
+ Route::get("applyleave",[FacultyController::class,"applyleave"]);
+ Route::post("applyleave1",[FacultyController::class,"applyleave1"]);
  
+ Route::get("viewleave",[Admincontroller::class,"viewleave"]);
+ Route::get("accept/{id}",[Admincontroller::class,"accept"]);
+ Route::get("reject/{id}",[Admincontroller::class,"reject"]);
+ 
+ Route::get("facultyleave",[FacultyController::class,"facultyleave"]);
