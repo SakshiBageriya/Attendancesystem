@@ -70,7 +70,7 @@
             width: 60%;
             -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
             clip-path: polygon(0 0, 0% 100%, 100% 0);
-            background: #44c7f5;
+            background: #149279;
         }
 
         .col-right {

@@ -1,65 +1,318 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ATTENDANCE MANAGEMENT | Dashboard</title>
-
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-    <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
-    <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+    <meta charset="UTF-8">
+    <title>Side Navigation Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css">
 
     <style>
-    .navbar {
-        background-color: #007bff !important;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
     }
 
-    .navbar-nav {
-        margin-right: auto;
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: #ffff;
+        z-index: 100;
+        transition: all 0.5s ease;
     }
 
-    .nav-link {
-        color: #ffffff !important;
-        font-weight: 500;
+    .sidebar.close {
+        width: 78px;
     }
 
-    .nav-link:hover {
-        color: #ffffff !important;
+    .sidebar .logo-details {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
     }
 
-    .brand-link {
-        color: #ffffff !important;
-        font-weight: 500;
-    }
-
-    .main-sidebar {
-        background-color: #343a40 !important;
-    }
-
-    .sidebar-dark-primary {
-        color: #ffffff !important;
+    .sidebar .logo-details i {
+        font-size: 30px;
+        color: #77619e;
+        height: 50px;
+        min-width: 78px;
         text-align: center;
-
+        line-height: 50px;
     }
 
-    .user-panel {
-        color: #ffffff !important;
+    .sidebar .logo-details .logo_name {
+        font-size: 22px;
+        color: #77619e;
+        font-weight: 600;
+        transition: 0.3s ease;
+        transition-delay: 0.1s;
+    }
+
+    .sidebar.close .logo-details .logo_name {
+        transition-delay: 0s;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .sidebar .nav-links {
+        height: 100%;
+        padding: 30px 0 150px 0;
+        overflow: auto;
+    }
+
+    .sidebar.close .nav-links {
+        overflow: visible;
+    }
+
+    .sidebar .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar .nav-links li {
+        position: relative;
+        list-style: none;
+        transition: all 0.4s ease;
+    }
+
+    .sidebar .nav-links li:hover {
+        background: #f3f1f6;
+    }
+
+    .sidebar .sub-menu li:hover {
+        background: none;
+        color: #77619e;
+    }
+
+    .sidebar .nav-links li .icon-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sidebar.close .nav-links li .icon-link {
+        display: block;
+    }
+
+    .sidebar .nav-links li i {
+        height: 50px;
+        min-width: 78px;
         text-align: center;
-
+        line-height: 50px;
+        color: #77619e;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
 
-    .user-panel .info a {
-        color: #aad9dd !important;
-        text-decoration: underline;
+    .sidebar .nav-links li.showMenu i.arrow {
+        transform: rotate(-180deg);
+    }
+
+    .sidebar.close .nav-links i.arrow {
+        display: none;
+    }
+
+    .sidebar .nav-links li a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .sidebar .nav-links li a .link_name {
+        font-size: 18px;
+        font-weight: 400;
+        color: #77619e;
+        transition: all 0.4s ease;
+    }
+
+    .sidebar.close .nav-links li a .link_name {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .sidebar .nav-links li .sub-menu {
+        padding: 6px 6px 14px 80px;
+        margin-top: 0px;
+        background: #fff;
+        display: none;
+    }
+
+    .sidebar .nav-links li.showMenu .sub-menu {
+        display: block;
+    }
+
+    .sidebar .nav-links li .sub-menu a {
+        color: #77619e;
+        font-size: 15px;
+        padding: 5px 0;
+        white-space: nowrap;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar .nav-links li .sub-menu a:hover {
+        opacity: 1;
+    }
+
+    .sidebar.close .nav-links li .sub-menu {
+        position: absolute;
+        left: 100%;
+        top: -10px;
+        margin-top: 0;
+        padding: 10px 20px;
+        border-radius: 0 6px 6px 0;
+        opacity: 0;
+        display: block;
+        pointer-events: none;
+        transition: 0s;
+    }
+
+    .sidebar.close .nav-links li:hover .sub-menu {
+        top: 0;
+        opacity: 1;
+        pointer-events: auto;
+        transition: all 0.4s ease;
+    }
+
+    .sidebar .nav-links li .sub-menu .link_name {
+        display: none;
+    }
+
+    .sidebar.close .nav-links li .sub-menu .link_name {
+        font-size: 18px;
+        opacity: 1;
+        display: block;
+    }
+
+    .sidebar .nav-links li .sub-menu.blank {
+        opacity: 1;
+        pointer-events: auto;
+        padding: 3px 20px 6px 16px;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .sidebar .nav-links li:hover .sub-menu.blank {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .sidebar .profile-details {
+        position: fixed;
+        bottom: 0;
+        width: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f3f1f6;
+        padding: 12px 0;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar.close .profile-details {
+        background: none;
+    }
+
+    .sidebar.close .profile-details {
+        width: 78px;
+    }
+
+    .sidebar .profile-details .profile-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar .profile-details img {
+        height: 52px;
+        width: 52px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin: 0 14px 0 12px;
+        background: #1d1b31;
+    }
+
+    .sidebar .profile-details .profile_name,
+    .sidebar .profile-details .job {
+        color: #77619e;
+        font-size: 18px;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: all 5s ease;
+    }
+
+    .sidebar.close .profile-details i,
+    .sidebar.close .profile-details .profile_name,
+    .sidebar.close .profile-details .job {
+        display: none;
+    }
+
+    .sidebar .profile-details .job {
+        font-size: 12px;
+    }
+
+    .home-section {
+        position: relative;
+        height: 100vh;
+        left: 260px;
+        width: calc(100% - 260px);
+        transition: all 0.5s ease;
+    }
+
+    .sidebar.close~.home-section {
+        left: 78px;
+        width: calc(100% - 78px);
+    }
+
+    .home-section .home-content {
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .home-section .home-content .bx-menu,
+    .home-section .home-content .text {
+        color: #77619e;
+        font-size: 35px;
+    }
+
+    .home-section .home-content .bx-menu {
+        margin: 0 15px;
+        cursor: pointer;
+    }
+
+    .home-section .home-content .text {
+        font-size: 26px;
+        font-weight: 600;
+    }
+
+    @media (max-width: 400px) {
+        .sidebar.close .nav-links li .sub-menu {
+            display: none;
+        }
+
+        .sidebar {
+            width: 78px;
+        }
+
+        .sidebar.close {
+            width: 0;
+        }
+
+        .home-section {
+            left: 78px;
+            width: calc(100% - 78px);
+            z-index: 100;
+        }
+
+        .sidebar.close~.home-section {
+            width: 100%;
+            left: 0;
+        }
     }
 
     .content-header {
@@ -71,11 +324,6 @@
         padding: 40px;
     }
 
-    .content-wrapper {
-        padding-top: 0;
-        margin-top: 20px;
-    }
-
     .main-footer {
         font-size: 18px;
         text-align: center;
@@ -84,78 +332,10 @@
         background-image: url('dist/img/2520.jpg');
     }
 
-    .breadcrumb {
-        background-color: #ffffff;
-        font-size: 16px;
-        color: #007bff;
+    .content-wrapper {
+        padding-top: 0;
+        margin-top: 20px;
     }
-
-    .breadcrumb-item.active {
-        color: #205793;
-    }
-
-    .preloader {
-        background-color: #ffffff;
-    }
-
-    .navbar-search-block {
-        display: none;
-    }
-
-    .form-control-sidebar {
-        background-color: #343a40;
-        color: #ffffff;
-    }
-
-    .btn-sidebar {
-        background-color: #007bff;
-        color: #ffffff;
-    }
-
-    .btn-sidebar:hover {
-        background-color: #0056b3;
-    }
-
-    .small-box {
-        background-color: #ffffff;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .small-box .icon {
-        color: #007bff;
-    }
-
-    .small-box .icon>i {
-        font-size: 50px;
-    }
-
-    .small-box .inner {
-        padding: 20px;
-    }
-
-    .small-box .inner p {
-        font-size: 18px;
-        color: #007bff;
-    }
-
-    .small-box .inner h3 {
-        font-size: 36px;
-        font-weight: bold;
-        color: #205793;
-    }
-
-    .small-box:hover {
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-        transform: translateY(-5px);
-    }
-
-    .pp {
-        height: auto;
-        max-height: 100%;
-        width: 100%;
-    }
-
 
     @media (max-width: 768px) {
         .content-wrapper {
@@ -170,198 +350,158 @@
     </style>
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/photo1.png" alt="logo" height="60" width="60">
+<body class="layout-fixed">
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxs-pyramid'></i>
+            <span class="logo_name">Attandance</span>
         </div>
-
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </nav>
-        <aside class="main-sidebar elevation-4">
-            <a href="home" class="brand-link">
-                <img src="dist/img/photo1.png" alt="Logo" class="brand-image img-fluid" style="opacity: .8">
-                <span class="brand-text font-weight-light">Admin Panel</span>
-            </a>
-
-            <div class="sidebar">
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/dd.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">SAKSHI BAGERIYA</a>
-                    </div>
+        <ul class="nav-links">
+            <li>
+                <a href="home">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Add New</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Add New</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
                 </div>
-                <nav class="mt-2">
-                    <!-- Sidebar Menu -->
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="home" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-plus"></i>
-                                <p>
-                                    Add New
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="form" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Course</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="formsem" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Subject</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="formfaculty" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Faculty</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="formstudent" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Student</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="formassign" class="nav-link">
-                                <i class="nav-icon fas fa-tasks"></i>
-                                <p>Assign Subject</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    View All
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="viewcourse" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Course</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="viewsubject" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Subject</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="viewfaculty" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Faculty</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="viewassign" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Assign</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="viewstudent" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Student</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <!-- /.sidebar-menu -->
-                </nav>
-                <!-- /.sidebar -->
-            </div>
-        </aside>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Add New</a></li>
+                    <li><a href="form">Add Course</a></li>
+                    <li><a href="formsem">Add Subject</a></li>
+                    <li><a href="formfaculty">Add Faculty</a></li>
+                    <li><a href="formstudent">Add Student</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class='bx bx-book-alt'></i>
+                        <span class="link_name">View All</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">View All</a></li>
+                    <li><a href="viewcourse">View Course</a></li>
+                    <li><a href="viewsubject">View Subject</a></li>
+                    <li><a href="viewfaculty">View Faculty</a></li>
+                    <li><a href="viewassign">View Assign</a></li>
+                    <li><a href="viewstudent">View Student</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="formassign">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="link_name">Assign Subject</span>
+                </a>
+            </li>
 
-        <div class="content-wrapper" style="margin-top: 20px;">
-            <!-- Logo -->
-            <img src="dist/img/logo_red.png" alt="logo"
-                style="float: left; margin-left: 20px; width: 250px; margin-top: 40px;">
-
-            <!-- Content Header (Page header) and Breadcrumb -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-9 text-center">
-                            <h1 class="m-0" style="color: #205793; font-weight: bold; text-decoration: underline;">
-                                Attendance Management System</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-3">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="home">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard 1</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <!-- Small boxes (Stat box) -->
-                    <div class="row justify-content-center">
-                        <div class="col-md-10">
-                            @yield('content')
-                        </div>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="link_name">Setting</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Setting</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="http://placebeard.it/250/250" alt="profileImg">
                     </div>
-                    <!-- /.row (main row) -->
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+                    <div class="name-job">
+                        <div class="profile_name">Farid Vatani</div>
+                        <div class="job">Software Engineer</div>
+                    </div>
+                    <i class='bx bx-log-out'></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="wrapper">
+            <div class="home-content">
+                <i class='bx bx-menu'></i>
+                <span class="text">DashBoard Sidebar</span>
+            </div>
+
+                <div class="content-wrapper" style="margin-top: 20px;">
+                    <!-- Logo -->
+                    <img src="dist/img/logo_red.png" alt="logo"
+                        style="float: left; margin-left: 20px; width: 250px; margin-top: 40px;">
+
+                    <!-- Content Header (Page header) and Breadcrumb -->
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-9 text-center">
+                                    <h1 class="m-0"
+                                        style="color: #205793; font-weight: bold; text-decoration: underline;">
+                                        Attendance Management System</h1>
+                                </div><!-- /.col -->
+                                <div class="col-sm-3">
+                            </div><!-- /.row -->
+                        </div><!-- /.container-fluid -->
+                    </section>
+                    <!-- /.content-header -->
+
+                    <!-- Main content -->
+                    <section class="content">
+                        <div class="container-fluid">
+                            <!-- Small boxes (Stat box) -->
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    @yield('content')
+                                </div>
+                            </div>
+                            <!-- /.row (main row) -->
+                        </div><!-- /.container-fluid -->
+                    </section>
+                    <!-- /.content -->
+                </div>
+
+
+
         </div>
+    </section>
 
-    </div>
-    <!-- Main content -->
-    <footer class="main-footer"
-        style="font-size: 18px;text-align:center;font-weight:bold;color:black;background-color: #ffffff;">
-        <strong style="color:black">Copyright &copy; 2024 &nbsp;, &nbsp;<a href="home" style="color:black">Sakshi
-                Bageriya</a></strong>&nbsp;&nbsp;
-        All rights reserved.&nbsp;
-    </footer>
+    <script>
+    const arrows = document.querySelectorAll(".arrow");
 
-    <aside class="control-sidebar control-sidebar-dark">
-    </aside>
-    </div>
+    arrows.forEach((arrow) => {
+        arrow.addEventListener("click", (e) => {
+            const arrowParent = e.target.closest(".arrow").parentElement.parentElement;
+            arrowParent.classList.toggle("showMenu");
+        });
+    });
 
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('dist/js/adminlte.js')}}"></script>
-    <script src="{{asset('dist/js/demo.js')}}"></script>
-    <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
+    const sidebar = document.querySelector(".sidebar");
+    const sidebarBtn = document.querySelector(".bx-menu");
+    const logo = document.querySelector('.logo-details');
+
+    if (sidebarBtn) {
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    }
+
+    if (logo) {
+        logo.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    }
+    </script>
 </body>
 
 </html>
