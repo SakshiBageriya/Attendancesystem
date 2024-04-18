@@ -359,7 +359,7 @@
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxs-pyramid'></i>
-            <span class="logo_name">Attandance</span>
+            <span class="logo_name">Attendance</span>
         </div>
         <ul class="nav-links">
             <li>
@@ -410,24 +410,15 @@
                     <span class="link_name">Assign Subject</span>
                 </a>
             </li>
-
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">Setting</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Setting</a></li>
-                </ul>
-            </li>
+            
             <li>
                 <div class="profile-details">
                     <div class="profile-content">
                         <img src="http://placebeard.it/250/250" alt="profileImg">
                     </div>
                     <div class="name-job">
-                        <div class="profile_name">Farid Vatani</div>
-                        <div class="job">Software Engineer</div>
+                        <div class="profile_name">Admin</div>
+                        <div class="job">Admin title</div>
                     </div>
                     <i class='bx bx-log-out'></i>
                 </div>
