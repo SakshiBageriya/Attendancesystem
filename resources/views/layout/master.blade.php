@@ -410,6 +410,12 @@
                     <span class="link_name">Assign Subject</span>
                 </a>
             </li>
+            <li>
+                <a href="formassign">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="link_name">Assign Subject</span>
+                </a>
+            </li>
             
             <li>
                 <div class="profile-details">
