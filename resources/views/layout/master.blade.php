@@ -289,7 +289,12 @@
         font-size: 26px;
         font-weight: 600;
     }
-
+    .main-footer {
+            font-size: 28px;
+            text-align: center;
+            color: white;
+            background-color: #77619e;
+        }
     @media (max-width: 400px) {
         .sidebar.close .nav-links li .sub-menu {
             display: none;
@@ -436,44 +441,46 @@
                 <span class="text">DashBoard Sidebar</span>
             </div>
 
-                <div class="content-wrapper" style="margin-top: 20px;">
-                    <!-- Logo -->
-                    <img src="dist/img/logo_red.png" alt="logo"
-                        style="float: left; margin-left: 20px; width: 250px; margin-top: 40px;">
+            <div class="content-wrapper" style="margin-top: 20px;">
+                <!-- Logo -->
+                <img src="dist/img/logo_red.png" alt="logo"
+                    style="float: left; margin-left: 20px; width: 250px; margin-top: 40px;">
 
-                    <!-- Content Header (Page header) and Breadcrumb -->
-                    <section class="content-header">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-9 text-center">
-                                    <h1 class="m-0"
-                                        style="color: #205793; font-weight: bold; text-decoration: underline;">
-                                        Attendance Management System</h1>
-                                </div><!-- /.col -->
-                                <div class="col-sm-3">
+                <!-- Content Header (Page header) and Breadcrumb -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-9 text-center">
+                                <h1 class="m-0" style="color: #205793; font-weight: bold; text-decoration: underline;">
+                                    Attendance Management System</h1>
+                            </div><!-- /.col -->
+                            <div class="col-sm-3">
                             </div><!-- /.row -->
                         </div><!-- /.container-fluid -->
-                    </section>
-                    <!-- /.content-header -->
+                </section>
+                <!-- /.content-header -->
 
-                    <!-- Main content -->
-                    <section class="content">
-                        <div class="container-fluid">
-                            <!-- Small boxes (Stat box) -->
-                            <div class="row justify-content-center">
-                                <div class="col-md-10">
-                                    @yield('content')
-                                </div>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <!-- Small boxes (Stat box) -->
+                        <div class="row justify-content-center">
+                            <div class="col-md-10">
+                                @yield('content')
                             </div>
-                            <!-- /.row (main row) -->
-                        </div><!-- /.container-fluid -->
-                    </section>
-                    <!-- /.content -->
-                </div>
-
-
-
+                        </div>
+                        <!-- /.row (main row) -->
+                    </div><!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
+            </div>
         </div>
+        <footer class="main-footer">
+            <strong style="color: black;">Copyright &copy; 2024 &nbsp;, &nbsp;<a href="home" style="color: black;">Sakshi
+                    Bageriya</a></strong>&nbsp;&nbsp;
+            All rights reserved.&nbsp;
+        </footer>
+
     </section>
 
     <script>
