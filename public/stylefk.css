@@ -153,6 +153,13 @@ textarea.form-control {
     color: #fff;
 }
 
+select.form-control {
+    /* Ensure text inside select elements is visible */
+    color: #333; /* Set color to ensure visibility */
+}
+
+
+
 .form-group span {
     position: absolute;
     top: 0;
