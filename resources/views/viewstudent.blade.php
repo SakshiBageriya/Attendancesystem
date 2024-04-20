@@ -13,7 +13,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>COURSE NAME</th>
+                            <th>COURSE NAMEE</th>
+
                             <th>SEMESTER</th>
                             <th>BATCH</th>
                             <th>STUDENT NAME</th>
