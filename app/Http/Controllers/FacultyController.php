@@ -106,30 +106,44 @@ function applyleave(){
     return view("faculty.applyleave");
 }
 
-function applyleave1( Request $req) {
-    $title=$req->input("title");
-    $description=$req->input("description");
-    $fromdate=$req->input("fromdate");
-    $todate=$req->input("todate");
-    $status=$req->input("status");
-    $faculty_id=Session::get("idd");
+function applyleave1(Request $req) {
+    $title = $req->input("title");
+    $description = $req->input("description");
+    $fromdate = $req->input("fromdate");
+    $todate = $req->input("todate");
+    $status = $req->input("status");
+    $faculty_id = Session::get("idd");
 
-    $data=$req->validate(['title'=>"required",
-    'description'=>"required",
-    'fromdate'=>"required",
-    'todate'=>"required"]);
+    $data = $req->validate([
+        'title' => "required",
+        'description' => "required",
+        'fromdate' => "required|date",
+        'todate' => "required|date"
+    ]);
 
-    $arr=array("title"=>$title,
-    "description"=>$description,
-    "fromdate"=>$fromdate,
-    "todate"=>$todate,
-    "faculty_id"=>$faculty_id);
+    $fromDateTime = new DateTime($fromdate);
+    $toDateTime = new DateTime($todate);
+    $now = new DateTime(); // Current date
 
-    $r=DB::table("applyleave")->insert($arr);
-    if($r)
-    echo"your application has been submitted successfully";
-else
-echo"try again";
+    if ($fromDateTime <= $toDateTime && $fromDateTime >= $now && $toDateTime >= $now) {
+        $arr = [
+            "title" => $title,
+            "description" => $description,
+            "fromdate" => $fromdate,
+            "todate" => $todate,
+            "faculty_id" => $faculty_id
+        ];
+
+        $r = DB::table("applyleave")->insert($arr);
+
+        if ($r) {
+            echo "Your application has been submitted successfully";
+        } else {
+            echo "Something went wrong, please try again";
+        }
+    } else {
+        echo "Invalid date range. Please ensure that 'fromdate' is equal to or greater than today and 'todate' is greater than or equal to 'fromdate'.";
+    }
 }
 
 

@@ -330,12 +330,16 @@
     }
 
     .main-footer {
-        font-size: 18px;
-        text-align: center;
-        font-weight: bold;
-        color: #000000;
-        background-image: url('dist/img/2520.jpg');
-    }
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+    background-image: url('dist/img/2520.jpg');
+}
+
 
     .content-wrapper {
         padding-top: 0;
@@ -408,6 +412,12 @@
                 <a href="formassign">
                     <i class='bx bx-pie-chart-alt-2'></i>
                     <span class="link_name">Assign Subject</span>
+                </a>
+            </li>
+            <li>
+                <a href="viewleave">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="link_name">View Leave </span>
                 </a>
             </li>
             

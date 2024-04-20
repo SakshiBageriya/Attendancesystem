@@ -30,7 +30,7 @@
                         <option value="MCA">MCA</option>
                         <option value="MSC-IT">MSC-IT</option>
                     </select>
-           
+                    
                     <label for="sm">Semester:</label>
                     <select id="sm" name="sm" class="form-control">
                         <option value="">Select semester</option>

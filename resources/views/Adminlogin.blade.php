@@ -1,304 +1,80 @@
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <style>
-        /* Your CSS code here */
-        /* * * * * General CSS * * * * */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Log in</title>
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            color: #666666;
-            background: #eaeff4;
-        }
-
-        .wrapper {
-            margin: 0 auto;
-            width: 100%;
-            max-width: 1140px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: flex;
-            background: #ffffff;
-            box-shadow: 0 0 5px #999999;
-        }
-
-        .credit {
-            position: relative;
-            margin: 25px auto 0 auto;
-            width: 100%;
-            text-align: center;
-            color: #666666;
-            font-size: 16px;
-            font-weight: 400;
-        }
-
-        .credit a {
-            color: #222222;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .col-left,
-        .col-right {
-            padding: 30px;
-            display: flex;
-        }
-
-        .col-left {
-            width: 60%;
-            -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
-            clip-path: polygon(0 0, 0% 100%, 100% 0);
-            background: #149279;
-        }
-
-        .col-right {
-            padding: 60px 30px;
-            width: 50%;
-            margin-left: -10%;
-        }
-
-        @media(max-width: 575.98px) {
-            .container {
-                flex-direction: column;
-                box-shadow: none;
-            }
-
-            .col-left,
-            .col-right {
-                width: 100%;
-                margin: 0;
-                -webkit-clip-path: none;
-                clip-path: none;
-            }
-
-            .col-right {
-                padding: 30px;
-            }
-        }
-
-        .login-text {
-            position: relative;
-            width: 100%;
-            color: #ffffff;
-        }
-
-        .login-text h2 {
-            margin: 0 0 15px 0;
-            font-size: 30px;
-            font-weight: 700;
-        }
-
-        .login-text p {
-            margin: 0 0 20px 0;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 22px;
-        }
-
-        .login-text .btn {
-            display: inline-block;
-            padding: 7px 20px;
-            font-size: 16px;
-            letter-spacing: 1px;
-            text-decoration: none;
-            border-radius: 30px;
-            color: #ffffff;
-            outline: none;
-            border: 1px solid #ffffff;
-            box-shadow: inset 0 0 0 0 #ffffff;
-            transition: .3s;
-            -webkit-transition: .3s;
-        }
-
-        .login-text .btn:hover {
-            color: #44c7f5;
-            box-shadow: inset 150px 0 0 0 #ffffff;
-        }
-
-        .login-form {
-            position: relative;
-            width: 100%;
-        }
-
-        .login-form h2 {
-            margin: 0 0 15px 0;
-            font-size: 22px;
-            font-weight: 700;
-            color: #44c7f5; /* Font color for form headings */
-        }
-
-        .login-form p {
-            margin: 0 0 10px 0;
-            text-align: left;
-            color: #666666;
-            font-size: 15px;
-        }
-
-        .login-form p:last-child {
-            margin: 0;
-            padding-top: 3px;
-        }
-
-        .login-form p a {
-            color: #44c7f5;
-            font-size: 14px;
-            text-decoration: none;
-        }
-
-        .login-form label {
-            display: block;
-            width: 100%;
-            margin-bottom: 2px;
-            letter-spacing: .5px;
-        }
-
-        .login-form p:last-child label {
-            width: 60%;
-            float: left;
-        }
-
-        .login-form label span {
-            color: #ff574e;
-            padding-left: 2px;
-        }
-
-        .login-form input {
-            display: block;
-            width: 100%;
-            height: 35px;
-            padding: 0 10px;
-            outline: none;
-            border: 1px solid #cccccc;
-            border-radius: 30px;
-        }
-
-        .login-form input:focus {
-            border-color: #ff574e;
-        }
-
-        .login-form button,
-        .login-form input[type=submit] {
-            display: inline-block;
-            width: 100%;
-            margin-top: 5px;
-            color: #44c7f5;
-            font-size: 16px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            background: transparent;
-            border: 1px solid #44c7f5;
-            border-radius: 30px;
-            box-shadow: inset 0 0 0 0 #44c7f5;
-            transition: .3s;
-            -webkit-transition: .3s;
-        }
-
-        .login-form button:hover,
-        .login-form input[type=submit]:hover {
-            color: #ffffff;
-            box-shadow: inset 250px 0 0 0 #44c7f5;
-        }
-
-        /* Custom CSS for Form Styling */
-        .login-card-body form {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .login-card-body h1 {
-            margin-bottom: 30px;
-            color: turquoise; /* Font color for the heading */
-        }
-
-        .form-control {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: none;
-            border-radius: 20px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, box-shadow 0.3s;
-            color: #333; /* Font color for the form controls */
-        }
-
-        .form-control:focus {
-            background-color: white;
-            box-shadow: 0 0 15px turquoise;
-        }
-
-        .btn-primary {
-            background-color: turquoise;
-            border: none;
-            border-radius: 20px;
-            padding: 15px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            transition: background-color 0.3s;
-        }
-
-        .btn-primary:hover {
-            background-color: #39cccc; /* Lighter shade of turquoise on hover */
-        }
-    </style>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
+<body class="hold-transition login-page" style="background-image: url('dist/img/admin_login image.jpg');"
+<div class="login-box">
+  <div class="login-logo">
+  <h1 class="login-box-msg" style=" margin: 0;
+    padding: 4px 2px 6px;
+    text-align: center;
+    /* size: b4; */
+    font-size: x-large;
+    color: turquoise;
+    font-weight: normal;
+    text-decoration: overline;">Please Sign in to System</h1>
+    <a href="../../Adminslogin"><b>ADMIN LOGIN </b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body" style=" background-color: #fff;
+    border-top: 0;
+    color: #666;
+    padding: 10px;
+    width: 155%;
+    margin: 1px 0px -5px -72px;
+    border-radius: 38px;">
+     
 
-<body>
-
-<div class="wrapper">
-    <div class="container">
-        <div class="col-left">
-            <div class="login-text">
-                <h2>Welcome Back</h2>
-                <p>Admin <br> How are you ?</p>
-
-            </div>
-        </div>
-        <div class="col-right">
-            <div class="login-form">
-                <h2>Login</h2>
-                <form action="./adminlogin1" method="post">
-                {{ csrf_field()}}
-                    <p>
-                        <label>Username or email address<span>*</span></label>
-                        <input class="form-control" type="text" name="nm" value="" placeholder="Enter User Name">
-                    </p>
-                    <p>
-                        <label>Password<span>*</span></label>
-                        <input class="form-control" type="password" name="ps" value="" placeholder="Enter Password">
-                    </p>
-                    <p>
-                    <button class="btn btn-primary btn-block" type="submit">Login</button>
-                    </p>
-                </form>
-            </div>
-        </div>
-    </div>
- 
+      <form action="./adminlogin1" method="post">
+    
+    {{ csrf_field()}}
+    <table class="table table-bordered"  align='center' cellspacing=0 cellpadding=10 width=100%>
+        <tr>
+            <td style="
+    border: 1px solid #dee2e6;
+    width: 16px;
+    font-size: larger;
+    color: #9d174e;
+    font-weight: 600;
+">User Name</td>
+            <td><input class="form-control" type="text" name='nm' value='' placeholder="Enter User Name"></td>
+        </tr>
+        
+        <tr>
+            <td style="
+    border: 1px solid #dee2e6;
+    width: 16px;
+    font-size: larger;
+    color: #9d174e;
+    font-weight: 600;
+">Password</td>
+            <td><input class="form-control" type="password" name='ps' value='' placeholder="Enter Password"></td>
+        </tr>
+        <tr>
+        <td colspan='2' align='center'><input class="btn btn-primary text-white" type="submit" value='Submit'></td>
+        </tr>
+</table>
+</form>
 </div>
-
-</body>
-
-</html>
