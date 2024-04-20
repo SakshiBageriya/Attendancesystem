@@ -1,12 +1,47 @@
 @extends("faculty.layout.masterfaculty")
 @section('content')
+<style>
+.assign {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 d-flex align-items-stretch" >
-            <div class="table-responsive" >
-                <table class="table table-bordered text-center" style="background-color: #f3f4f6;">
-                    <thead class="thead-dark">
+.table-container {
+    margin: 0 auto;
+    width: 70%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Added box shadow */
+
+}
+
+.abc {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.abc th,
+.abc td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.abc th {
+    background-color: #77619e;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.abc tr:hover {
+    background-color: #ddd;
+}
+</style>
+
+
+<div class="table-container">
+<table class="abc abc-table">
                         <tr>
                             <th>ID</th>
                             <th>TITLE</th>
@@ -14,10 +49,9 @@
                             <th>FROMDATE</th>
                             <th>TODATE</th>
                             <th>Action</th>
-                            
+
                         </tr>
-                    </thead>
-<?phP
+                    <?phP
 $fid=Session::get("idd");
 $arr=DB::select("select * from applyleave where faculty_id='$fid'");
 $sno=1;
@@ -41,9 +75,9 @@ $sno=1;
         else
         echo "<span style='color:red'>Rejected</span>";
                                 ?>
-                            
+
                             </td>
-                       
+
                         </tr>
                         @endforeach
                     </tbody>
