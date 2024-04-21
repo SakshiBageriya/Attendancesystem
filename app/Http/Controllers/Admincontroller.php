@@ -44,7 +44,7 @@ class Admincontroller extends Controller
         $name=$req->input("cn");
         $semester=$req->input("sm");
         $subject=$req->input("sub");
-        $papercode=$req->input("pcd");
+        $papercode=$req->input("pcd"); 
 
         $arr=array("coursename"=>$name,
         "semester"=>$semester,
@@ -239,6 +239,45 @@ function viewleave(){
     return view ("viewleave");
 }
 
-}  
+function Announcement(){
+    return view("Announcement");
+}
+function announcement1(request $req){
+
+    
+    $title=$req->input("title");
+    $category=$req->input("category");
+    $date=$req->input("date");
+    $admin=$req->input("admin");
+    $audience=$req->input("audience");
+    $content=$req->input("content");
+    $files=$req->file('aa');
+
+    $attachment=$files->getClientOriginalName();
+    $files->move("upload",$files->getClientOriginalName());
+
+
+    $data=$req->validate(['title'=>"required",
+    'category'=>"required",
+    'date'=>"required",
+    'admin'=>"required",
+    'audience'=>"required",
+    'content'=>"required"]);
+
+
+    $arr=array("title"=>$title,
+    "category"=>$category,
+    "date"=>$date,
+    "admin"=>$admin,
+    "audience"=>$audience,
+    "content"=>$content,
+    "attachment"=>$attachment);
+    $r=DB::table("announcement")->insert($arr);
+    if($r)
+    echo"sent";
+    else
+    echo"Try Again";
+}
+}
 
 

@@ -80,3 +80,7 @@ Route::get("form",[Admincontroller::class,"form"]);
  Route::get("reject/{id}",[Admincontroller::class,"reject"]);
  
  Route::get("facultyleave",[FacultyController::class,"facultyleave"]);
+
+
+ Route::get("Announcement",[Admincontroller::class,"Announcement"]);
+ Route::post("announcement1",[Admincontroller::class,"announcement1"]);
