@@ -24,7 +24,8 @@
             <div class="contact-form" style="margin-top: 20px;">
                 <span class="circle one"></span>
                 <span class="circle two"></span>
-                <form action="./announcement1" method="post" style="color: white; font-weight: bold;">
+                <form enctype="multipart/form-data" action="./announcement1" method="post" 
+                style="color: white; font-weight: bold;">
                     {{ csrf_field()}}
                     <h2 class="add-student-heading">Announcement</h2>
 

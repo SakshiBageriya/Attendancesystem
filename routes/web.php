@@ -84,3 +84,5 @@ Route::get("form",[Admincontroller::class,"form"]);
 
  Route::get("Announcement",[Admincontroller::class,"Announcement"]);
  Route::post("announcement1",[Admincontroller::class,"announcement1"]);
+
+ Route::get("facultyanouncement",[FacultyController::class,"facultyanouncement"]);

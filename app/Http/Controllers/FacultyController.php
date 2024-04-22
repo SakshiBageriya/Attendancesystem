@@ -105,7 +105,8 @@ function viewattendances($course,$semester,$subject)
 function applyleave(){
     return view("faculty.applyleave");
 }
-function applyleave1(Request $req) {
+function applyleave1(Request $req) 
+{
     // Retrieving input data from the request
     $title = $req->input("title");
     $description = $req->input("description");
@@ -124,15 +125,16 @@ function applyleave1(Request $req) {
         'todate' => "required|date"
     ]);
 
-    // Converting input dates to DateTime objects
-    $fromDateTime = new DateTime($fromdate);
-    $toDateTime = new DateTime($todate);
-    $now = new DateTime(); // Current date
+    // // Converting input dates to DateTime objects
+    // $fromDateTime = new DateTime($fromdate);
+    // $toDateTime = new DateTime($todate);
+    // $now = new DateTime(); // Current date
 
-    // Checking if the input date range is valid
-    if ($fromDateTime <= $toDateTime && $fromDateTime >= $now && $toDateTime >= $now) {
-        // If the date range is valid, prepare data to insert into the database
-        $arr = [
+    // // Checking if the input date range is valid
+    // if ($fromDateTime <= $toDateTime && $fromDateTime >= $now && $toDateTime >= $now) {
+    //     // If the date range is valid, prepare data to insert into the database
+    //   
+      $arr = [
             "title" => $title,
             "description" => $description,
             "fromdate" => $fromdate,
@@ -146,18 +148,19 @@ function applyleave1(Request $req) {
         // Checking if insertion was successful and displaying appropriate message
         if ($r) {
             echo "Your application has been submitted successfully";
-        } else {
+        } 
+        else
+         {
             echo "Something went wrong, please try again";
         }
-    } else {
-        // If the date range is not valid, display error message
-        echo "Invalid date range. Please ensure that 'fromdate' is equal to or greater than today and 'todate' is greater than or equal to 'fromdate'.";
-    }
 }
 
 
 function facultyleave(){
     return view("faculty.facultyleave");
 }
-
+function facultyanouncement()
+{
+    return view("faculty.facultyanouncement");
+}
 }

@@ -254,7 +254,7 @@ function announcement1(request $req){
     $files=$req->file('aa');
 
     $attachment=$files->getClientOriginalName();
-    $files->move("upload",$files->getClientOriginalName());
+    $files->move("attachement",$files->getClientOriginalName());
 
 
     $data=$req->validate(['title'=>"required",
@@ -271,7 +271,7 @@ function announcement1(request $req){
     "admin"=>$admin,
     "audience"=>$audience,
     "content"=>$content,
-    "attachment"=>$attachment);
+    "attachement"=>$attachment);
     $r=DB::table("announcement")->insert($arr);
     if($r)
     echo"sent";

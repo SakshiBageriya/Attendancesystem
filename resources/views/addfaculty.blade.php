@@ -23,7 +23,7 @@
             <div class="contact-form" style="margin-top: 20px;">
                 <span class="circle one"></span>
                 <span class="circle two"></span>
-                <form action="./addfaculty" method="post" style="color: white; font-weight: bold;">
+                <form action="./addfaculty" method="post" enctype="multipart/form-data" style="color: white; font-weight: bold;">
                     {{ csrf_field()}}
                     <h2 class="add-faculty-heading" style="margin-bottom: 20px;">ADD FACULTY</h2>
 
