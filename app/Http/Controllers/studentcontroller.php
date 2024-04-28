@@ -36,4 +36,8 @@ function studentdashboardmain()
 {
     return view("student.studentdashboardmain");
 }
+function studentannouncement()
+{
+    return view("student.studentannouncement");
+}
 }

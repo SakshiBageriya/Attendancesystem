@@ -16,7 +16,7 @@ use App\http\controllers\studentcontroller;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontpage');
 });
 
 Route::get("try",[Admincontroller::class,"try"]);
@@ -86,3 +86,4 @@ Route::get("form",[Admincontroller::class,"form"]);
  Route::post("announcement1",[Admincontroller::class,"announcement1"]);
 
  Route::get("facultyanouncement",[FacultyController::class,"facultyanouncement"]);
+ Route::get("studentannouncement",[studentController::class,"studentannouncement"]);

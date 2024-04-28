@@ -278,6 +278,10 @@ function announcement1(request $req){
     else
     echo"Try Again";
 }
+function frontpage()
+{
+    return view("frontpage");
+}
 }
 
 
