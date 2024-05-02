@@ -25,7 +25,7 @@ function studentlogin1(Request $req)
    $c=count($arr);
   
    if($c>=1){
-   Session::put("email",$arr[0]->studentname);
+   Session::put("email",$arr[0]->email);
     return redirect("studentdashboardmain");
    }
    else
@@ -39,5 +39,14 @@ function studentdashboardmain()
 function studentannouncement()
 {
     return view("student.studentannouncement");
+}
+function studentattendance()
+{
+    return view("student.studentattendance");
+}
+
+function subjectattendance($course,$sem,$subjectname)
+{
+   return view("student.subjectattendance",["course"=>$course,"semester"=>$sem,"subject"=>$subjectname]);
 }
 }

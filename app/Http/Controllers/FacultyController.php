@@ -32,7 +32,8 @@ function facultylogin1(Request $req)
     return redirect("facultydashboardmain");
    }
    else
-echo "Invalid UserName ANd Password ";
+  
+   alert("please enter valid Email or Password");
 }
 
 
@@ -162,5 +163,10 @@ function facultyleave(){
 function facultyanouncement()
 {
     return view("faculty.facultyanouncement");
+}
+function facultylogout()
+{
+    Session::flush();
+    return redirect("facultylogin");
 }
 }

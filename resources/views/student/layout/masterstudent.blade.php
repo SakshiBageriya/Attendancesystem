@@ -372,7 +372,7 @@
             </li>
             <li>
                 <div class="icon-link">
-                    <a href="">
+                    <a href="studentattendance">
                         <i class='bx bx-collection'></i>
                         <span class="link_name">CHECK ATTENDANCE</span>
                     </a>

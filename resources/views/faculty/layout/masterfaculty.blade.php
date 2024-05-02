@@ -1,3 +1,7 @@
+<?php
+if(!Session::has("idd"))
+return redirect("/");
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -402,7 +406,14 @@
                     </a>
                 </div>
             </li>
-
+            <li>
+                <div class="icon-link">
+                    <a href="{{url('facultylogout')}}">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">logout</span>
+                    </a>
+                </div>
+            </li>
             <li>
                 <div class="profile-details">
                     <div class="profile-content">
