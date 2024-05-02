@@ -41,33 +41,33 @@
 
 
 <div class="table-container">
-<table class="abc abc-table">
-                        <tr>
-                            <th>ID</th>
-                            <th>TITLE</th>
-                            <th>DESCRIPTION</th>
-                            <th>FROMDATE</th>
-                            <th>TODATE</th>
-                            <th>Action</th>
+    <table class="abc abc-table">
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>DESCRIPTION</th>
+            <th>FROMDATE</th>
+            <th>TODATE</th>
+            <th>Action</th>
 
-                        </tr>
-                    <?phP
+        </tr>
+        <?phP
 $fid=Session::get("idd");
 $arr=DB::select("select * from applyleave where faculty_id='$fid'");
 $sno=1;
 ?>
 
-                    <tbody>
-                        @foreach($arr as $values)
-                        <tr>
-                            <td><?php echo $sno++; ?></td>
-                            <td>{{$values->title}}</td>
-                            <td>{{$values->description}}</td>
-                            <td>{{$values->fromdate}}</td>
-                            <td>{{$values->todate}}</td>
-                            <td>
+        <tbody>
+            @foreach($arr as $values)
+            <tr>
+                <td><?php echo $sno++; ?></td>
+                <td>{{$values->title}}</td>
+                <td>{{$values->description}}</td>
+                <td>{{$values->fromdate}}</td>
+                <td>{{$values->todate}}</td>
+                <td>
 
-                                <?php
+                    <?php
             if($values->status==0)
                 echo "Leave Process";
             else if($values->status==1)
@@ -76,16 +76,14 @@ $sno=1;
         echo "<span style='color:red'>Rejected</span>";
                                 ?>
 
-                            </td>
+                </td>
 
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 
+</div>
 
 @endsection

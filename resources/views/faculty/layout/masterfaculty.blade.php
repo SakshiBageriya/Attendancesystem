@@ -308,13 +308,11 @@ return redirect("/");
         }
 
         .main-footer {
-            font-size: 18px;
-            text-align: center;
-            font-weight: bold;
-            color: #000000;
-            background-image: url('dist/img/2520.jpg');
-            padding: 20px;
-            margin-top: 40px; /* Adjusted margin-top */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0; 
         }
 
         @media (max-width: 400px) {
@@ -469,12 +467,13 @@ return redirect("/");
                 <!-- /.content -->
             </div>
         </div>
-    </section>
-
-    <footer class="main-footer">
+        <footer class="main-footer">
         <strong style="color: black;">Copyright &copy; 2024 &nbsp;, &nbsp;<a href="home"
                 style="color: black;">Sakshi Bageriya</a></strong>&nbsp;&nbsp; All rights reserved.&nbsp;
     </footer>
+    </section>
+
+
 
     <script>
         const arrows = document.querySelectorAll(".arrow");
