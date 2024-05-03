@@ -221,8 +221,8 @@ body {
 <div class="wrapper">
   <div class="container">
     <div class="col-left">
-      <div class="login-text">
-        <h2>Welcome Back</h2>
+      <div class="login-text"> 
+        <h2>Admin Login</h2>
       </div>
     </div>
     <div class="col-right">
